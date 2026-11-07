@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1b2d">
+<title>نانو ميثاق | مراقبة الشبكة اللاسلكية</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#081625;--panel:#10243a;--panel2:#142c45;--line:#263f59;
+  --text:#edf5fc;--muted:#9bb1c7;--blue:#55b8ed;--green:#45d49a;
+  --yellow:#f3bd5b;--red:#ff737b;--radius:18px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#122d49 0,#081625 55%);color:var(--text);font-family:Tahoma,Arial,sans-serif;min-height:100vh}
+.wrap{width:min(100%,980px);margin:auto;padding:18px 14px 36px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px 20px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(145deg,#1b5278,#12304a);display:grid;place-items:center;border:1px solid #39749b}
+.logo svg{width:27px;height:27px}
+h1{font-size:22px;margin:0 0 5px;letter-spacing:.2px}
+.sub{font-size:12px;color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid #6b552c;border-radius:30px;color:#f6d28a;background:#332b1d;font-size:11px;white-space:nowrap}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--yellow)}
+.hero{background:linear-gradient(135deg,#173957,#10263d 65%,#10243a);border:1px solid #2a4a67;border-radius:24px;padding:20px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:210px;height:210px;border-radius:50%;border:1px solid #ffffff0d;left:-70px;top:-105px;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff05}
+.hero-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;position:relative;z-index:1}
+.eyebrow{font-size:11px;color:#b6cde1;margin-bottom:7px}
+.device{font-size:18px;font-weight:700}
+.network{color:#a9c4db;font-size:12px;margin-top:6px}
+.status{font-size:11px;color:#f4d28c;border:1px solid #725d36;background:#45391f;border-radius:20px;padding:7px 10px}
+.signal{margin-top:25px;position:relative;z-index:1}
+.signal-label{font-size:12px;color:#b9cde0}
+.signal-value{font-size:43px;font-weight:700;letter-spacing:-1px;margin:4px 0}
+.signal-value small{font-size:14px;color:#a9c4db;font-weight:400}
+.signal-note{font-size:11px;color:#a9c4db}
+.notice{margin-top:14px;border:1px solid #66532e;background:#302a20;color:#e9d5a8;padding:11px 12px;border-radius:13px;font-size:11px;line-height:1.8}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:23px 2px 11px}
+.section-title h2{font-size:15px;margin:0}
+.section-title span{font-size:11px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{background:linear-gradient(160deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:14px;min-width:0}
+.card .label{font-size:11px;color:var(--muted);margin-bottom:9px}
+.value{font-size:25px;font-weight:700;letter-spacing:-.4px}
+.unit{font-size:11px;color:var(--muted);font-weight:400}
+.mini{font-size:10px;color:var(--muted);margin-top:7px}
+.track{height:6px;background:#263d54;border-radius:20px;overflow:hidden;margin-top:11px}
+.fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#3a9dd7,#55d2b2)}
+.info-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:3px 14px}
+.info-row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #263b50;font-size:12px}
+.info-row:last-child{border:0}
+.info-row span:first-child{color:var(--muted)}
+.info-row strong{font-weight:600;text-align:left;direction:ltr;overflow-wrap:anywhere}
+.nav{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:18px 0}
+.nav button{border:1px solid var(--line);background:#10243a;color:#b5c9dc;border-radius:12px;padding:11px 4px;font:inherit;font-size:10px;cursor:pointer}
+.nav button.active{background:#1a4667;border-color:#367da9;color:#fff}
+.panel{display:none}.panel.active{display:block}
+.empty{padding:24px 15px;text-align:center;background:var(--panel);border:1px dashed #38516b;border-radius:var(--radius);color:var(--muted);font-size:12px;line-height:2}
+.empty b{display:block;color:var(--text);font-size:14px;margin-bottom:5px}
+footer{text-align:center;color:#718aa2;font-size:10px;padding:24px 0 5px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.wrap{padding:26px 22px 45px}.hero{padding:26px}.signal-value{font-size:50px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#8bd7ff" stroke-width="1.7" stroke-linecap="round">
+        <path d="M12 20V9M8 20h8M9 9a4 4 0 0 1 6 0M6 6a8 8 0 0 1 12 0M3 3a12 12 0 0 1 18 0"/>
+        <circle cx="12" cy="9" r="1.5" fill="#8bd7ff"/>
+      </svg>
+    </div>
+    <div><h1>نانو ميثاق</h1><div class="sub">نظام مراقبة الشبكة اللاسلكية</div></div>
+  </div>
+  <div class="pill"><i class="dot"></i> وضع المعاينة</div>
+</header>
+
+<section class="hero">
+  <div class="hero-top">
+    <div>
+      <div class="eyebrow">الجهاز المحدد</div>
+      <div class="device">PowerBeam M5 400</div>
+      <div class="network">اسم الشبكة: AMEER · وضع المحطة</div>
+    </div>
+    <div class="status">بانتظار الربط الحي</div>
+  </div>
+  <div class="signal">
+    <div class="signal-label">قوة الإشارة</div>
+    <div class="signal-value">-58 <small>ديسيبل ميلي واط</small></div>
+    <div class="signal-note">آخر قراءة زوّدنا بها المستخدم — ليست قراءة مباشرة الآن</div>
+  </div>
+</section>
+
+<div class="notice">تنبيه: هذه نسخة واجهة تجريبية. الأرقام المعروضة مأخوذة من معلومات جهازك السابقة، ولا يتم حالياً الاتصال بالنانو أو تحديث القراءات تلقائياً.</div>
+
+<div class="nav" role="tablist" aria-label="أقسام لوحة المراقبة">
+  <button class="active" data-tab="overview">الرئيسية</button>
+  <button data-tab="quality">جودة الاتصال</button>
+  <button data-tab="network">معلومات الشبكة</button>
+  <button data-tab="history">السجل</button>
+</div>
+
+<section id="overview" class="panel active">
+  <div class="section-title"><h2>مؤشرات الاتصال</h2><span>آخر بيانات معروفة</span></div>
+  <div class="grid">
+    <article class="card"><div class="label">جودة الإرسال</div><div class="value">95.1<span class="unit">%</span></div><div class="track"><div class="fill" style="width:95.1%"></div></div></article>
+    <article class="card"><div class="label">جودة نظام الاتصال</div><div class="value">66<span class="unit">%</span></div><div class="track"><div class="fill" style="width:66%"></div></div></article>
+    <article class="card"><div class="label">سعة الاتصال</div><div class="value">57<span class="unit">%</span></div><div class="track"><div class="fill" style="width:57%"></div></div></article>
+    <article class="card"><div class="label">مستوى التشويش</div><div class="value">-100 <span class="unit">dBm</span></div></article>
+    <article class="card"><div class="label">سرعة الإرسال</div><div class="value">39 <span class="unit">ميغابت/ث</span></div></article>
+    <article class="card"><div class="label">سرعة الاستقبال</div><div class="value">144.4 <span class="unit">ميغابت/ث</span></div></article>
+  </div>
+  <div class="section-title"><h2>حالة الجهاز</h2><span>معلومات محلية</span></div>
+  <div class="grid">
+    <article class="card"><div class="label">استخدام المعالج</div><div class="value">4<span class="unit">%</span></div></article>
+    <article class="card"><div class="label">استخدام الذاكرة</div><div class="value">36<span class="unit">%</span></div></article>
+    <article class="card"><div class="label">مدة التشغيل عند القراءة</div><div class="value" style="font-size:19px">00:36:05</div></article>
+  </div>
+</section>
+
+<section id="quality" class="panel">
+  <div class="section-title"><h2>تفاصيل جودة الاتصال</h2><span>قراءات سابقة</span></div>
+  <div class="info-list">
+    <div class="info-row"><span>قوة الإشارة الإجمالية</span><strong>-58 dBm</strong></div>
+    <div class="info-row"><span>الإشارة الأفقية</span><strong>-64 dBm</strong></div>
+    <div class="info-row"><span>الإشارة العمودية</span><strong>-59 dBm</strong></div>
+    <div class="info-row"><span>مستوى التشويش</span><strong>-100 dBm</strong></div>
+    <div class="info-row"><span>جودة الإرسال</span><strong>95.1%</strong></div>
+    <div class="info-row"><span>جودة نظام الاتصال</span><strong>66%</strong></div>
+    <div class="info-row"><span>سعة الاتصال</span><strong>57%</strong></div>
+  </div>
+</section>
+
+<section id="network" class="panel">
+  <div class="section-title"><h2>معلومات الشبكة والجهاز</h2><span>بيانات التعريف</span></div>
+  <div class="info-list">
+    <div class="info-row"><span>اسم الجهاز</span><strong>PowerBeam M5 400</strong></div>
+    <div class="info-row"><span>اسم الشبكة</span><strong>AMEER</strong></div>
+    <div class="info-row"><span>نمط الشبكة</span><strong>موجّه</strong></div>
+    <div class="info-row"><span>نمط الاتصال اللاسلكي</span><strong>محطة</strong></div>
+    <div class="info-row"><span>التردد</span><strong>5680 MHz</strong></div>
+    <div class="info-row"><span>رقم القناة</span><strong>136</strong></div>
+    <div class="info-row"><span>عرض القناة</span><strong>20 MHz</strong></div>
+    <div class="info-row"><span>المسافة المسجلة</span><strong>1.1 km</strong></div>
+    <div class="info-row"><span>قدرة الإرسال</span><strong>26 dBm</strong></div>
+    <div class="info-row"><span>إصدار النظام</span><strong>v6.1.7-licensed.32555 (XW)</strong></div>
+    <div class="info-row"><span>عنوان الجهاز اللاسلكي</span><strong>74:83:C2:A2:6F:F0</strong></div>
+    <div class="info-row"><span>عنوان نقطة الوصول</span><strong>FC:EC:DA:20:07:A1</strong></div>
+  </div>
+</section>
+
+<section id="history" class="panel">
+  <div class="section-title"><h2>سجل المراقبة</h2><span>جاهز للتفعيل</span></div>
+  <div class="empty"><b>لا توجد قراءات محفوظة حتى الآن</b>سيبدأ حفظ السجل اليومي والأسبوعي والشهري بعد ربط اللوحة بمصدر بيانات محلي يعمل باستمرار.</div>
+</section>
+
+<footer>نانو ميثاق · لوحة مراقبة محلية · نسخة الواجهة الأولية</footer>
+</div>
+<script>
+document.querySelectorAll('.nav button').forEach(button=>{
+  button.addEventListener('click',()=>{
+    document.querySelectorAll('.nav button').forEach(item=>item.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(panel=>panel.classList.remove('active'));
+    button.classList.add('active');
+    document.getElementById(button.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
